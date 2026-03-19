@@ -1,30 +1,35 @@
-const replies = [
-    "odp2",
-    "odp2",
-    "odp3" //i tak dalej...
-];
+<!DOCTYPE html>
+<head>
+    <title>Losowanie w js</title>
+    <meta lang="pl">
+</head>
+<body>
+    <h1>Losuj z listy</h1>
+    <button onclick="genLosOdp()">Losuj</button>
+    <div id="wynik"></div>
+</body>
+<script>
+    const lista = [
+        "Ania",
+        "Mirek",
+        "Andrzej",
+        "blablalab",
+        "sans" //i tak dalej...
+        ];
+    function genLosOdp() {
 
-function sendMessage() {
-    const messageInput = document.getElementById('messageInput');
-    const messageText = messageInput.value;
-    const chat = document.querySelector('#chat');
-    const newMessage = document.createElement('div');
-    newMessage.classList.add('message', 'jolanta');
-    newMessage.innerHTML = "<img src='Jolka.jpg' alt='Jolanta Nowak'><p>" + messageText + "</p>";
-    chat.appendChild(newMessage);
-    newMessage.scrollIntoView();
-    messageInput.value = '';
-}
-
-function generateRandomReply() {
-    const randomIndex = Math.floor(Math.random() * replies.length);
-    const replyText = replies[randomIndex];
-    const chat = document.querySelector('#chat');
-    const newMessage = document.createElement('div');
-    newMessage.classList.add('message', 'krzysztof');
-    newMessage.innerHTML = "<img src='Krzysiek.jpg' alt='Krzysztof Łukasiński'><p>" + replyText + "</p>";
-    chat.appendChild(newMessage);
-    newMessage.scrollIntoView();
-}
-
-//Made by Chr1skyy
+        //Zaokrąglenie liczby i jej losowanie
+        const randomizer = Math.floor(Math.random() * lista.length);
+        //Zdefiniowanie wylosowanego obiektu z listy
+        const odpowiedz = lista[randomizer];
+        //wybranie elemntu o id 'wynik'
+        const wybor = document.querySelector('#wynik');
+        //stworzenie elementu div
+        const newMessage = document.createElement('div');
+        newMessage.innerHTML = "<p>" + replyText + "</p>";
+        //dodanie nowej linijki wiadomości pod wcześniejszą
+        chat.appendChild(newMessage);
+        //Automatyczne przewijanie (przy wypełnieniu strony lub obszaru)
+        newMessage.scrollIntoView();
+    }
+</script>
